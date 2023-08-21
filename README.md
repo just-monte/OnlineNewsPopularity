@@ -34,15 +34,15 @@ The data was split using a time series split  on the date September 1, 2014. All
 After cross-validation, I created the time series features for the model. The features being  day, month, year, and day of week. The model I chose was XGBoost. The number of trees was set to 500 estimators with a learning rate of 0.01. The model was fit to the train and testing data with verbose to 50 to avoid overfitting. I did notice some overfitting around the 200 mark. I evaluated the model using the mean squared error. The model scored 8071.733668467614.
 
 The worst predicted days were 8-22-2014, 08-31-2014, 10-04-2014, 09-25-2015, 9-19-2015. The best predicted days were 11-28-2014, 09-07-2014, 11-15-2014, 09-21-2014.
+
 ## 5. Model Predictions 
-Based on the month, month was highest in importance with a score of 0.38. Day is second with 0.23, day of week third with 0.20. Year was ranked lowest in importance with 0.19.
-![](https://github.com/just-monte/OnlineNewsPopularity/blob/c0c707a90dd62027051944a2b29b88b771f206e4/Images/Screenshot%202023-08-16%20at%208.59.24%20PM.png)
+Based on the model, the rate of unique non-stop words in the content was the most important with a score of 0.006734. Followed by the best keyword (average shares) and the average length of the words in the content. The only feature that did not score any importance was the absolute polarity level
+![](https://github.com/just-monte/OnlineNewsPopularity/blob/5dd7f7a5ab80082482a756a374333cfbc283d2a8/Images/Screenshot%202023-08-20%20at%2012.03.40%20PM.png)
 
 ## 6. Forecating 
+The future model predicts a decreasing seasonal pattern in 2015. With the lowest shares appearing in December 2015. Extreme high peaks were noted in months February, March, and May. All of these months reached over 5000 shares. From February to March there is a constant range of article shares from 3000 to 3500. The last four months of the year had minor dips in each month
 
-Higher peaks were noted at the beginning of the year( January - May).The highest shares appeared in March 2015 with over 5500 shares.Mid May one can see the shares decrease in which articles shares all fall under 3000 (June-December). The lowest shares appeared in November 2015 with under 2500 shares.
-
-![](https://github.com/just-monte/OnlineNewsPopularity/blob/c0c707a90dd62027051944a2b29b88b771f206e4/Images/Screenshot%202023-08-16%20at%208.59.36%20PM.png)
+![](https://github.com/just-monte/OnlineNewsPopularity/blob/5dd7f7a5ab80082482a756a374333cfbc283d2a8/Images/Screenshot%202023-08-20%20at%2012.00.28%20PM.png)
 
 ## 7. Future Improvements 
 To improve on this model, I would add additional features such as quarter, and holidays. It would have been helpful insight if the times the articles were published where available. This would have allowed for another depth in the seasonal trends.  Lastly would take into account lagged features. 
